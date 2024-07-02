@@ -11,7 +11,7 @@ def save_eye_images_as_png(all_eye_images: list[dict]) -> None:
         with open(f"images/{timestamp}.png", "wb") as image_file:
             image_file.write(byte_string)
 
-def write_file(data, filepath: str):
+def write_file(filepath: str, data):
     file_format = filepath.split('.')[-1]
     legal_formats = ['json', 'csv', 'pkl', 'psydat', 'yaml']
     if file_format not in legal_formats:
@@ -44,3 +44,21 @@ def write_file(data, filepath: str):
             else: 
                 writer = csv.writer(f)
             writer.writerows(data)
+
+def read_file(filepath: str):
+    file_format = filepath.split('.')[-1]
+    legal_formats = ['json', 'pkl', 'psydat',]
+    if file_format not in legal_formats:
+        raise ValueError(f"Invalid format. Must be {', '.join(legal_formats[:-1])} or {legal_formats[-1]}")
+
+    folder_path = os.path.dirname(filepath)
+    if folder_path and not os.path.exists(folder_path):
+        raise FileNotFoundError(f"Folder does not exist: {folder_path}")
+    
+    if file_format in ['pkl', 'psydat']: 
+        with open(filepath, 'rb') as file:
+            data = pkl.load(file)
+
+    elif file_format == 'json':
+        with open(filepath, 'r') as file:
+            data = json.load(file)

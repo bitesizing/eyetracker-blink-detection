@@ -44,13 +44,8 @@ unsubscribe()
 
 # %%
 """ Save eye images and gaze data to json files. """
-write_file(all_gaze_data, 'datafiles/gaze_data.json')
-write_file(all_eye_images, 'datafiles/eye_images.pkl')
-
-# %%
-
-
-
+write_file('datafiles/gaze_data.json', data=all_gaze_data)
+write_file('datafiles/eye_images.pkl', data=all_eye_images)
 
 
 # %%
