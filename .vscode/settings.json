@@ -2,7 +2,6 @@
   "files.exclude": {
     ".git": true,
     ".vscode": true,
-    ".gitattributes": true,
-    ".gitignore": true
+    ".gitattributes": true
   }
 }

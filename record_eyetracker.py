@@ -19,6 +19,4 @@ time.sleep(2)
 eyetracker.unsubscribe()
 
 """ Save eye images and gaze data to json files. """
-# eyetracker.write_files()
-# write_file('datafiles/gaze_data.json', data=all_gaze_data)
-# write_file('datafiles/eye_images.pkl', data=all_eye_images)
+eyetracker.write_files()
