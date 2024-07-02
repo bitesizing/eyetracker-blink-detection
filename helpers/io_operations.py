@@ -62,3 +62,5 @@ def read_file(filepath: str):
     elif file_format == 'json':
         with open(filepath, 'r') as file:
             data = json.load(file)
+    
+    return data
