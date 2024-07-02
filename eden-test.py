@@ -1,11 +1,13 @@
 # %%
-
 # 'Import' code (pull in code that tobii etc. have written so we can use it)
+import json
 import time
 import numpy as np
 import tobii_research as tr
 from tobiiresearch.implementation.EyeTracker import EyeTracker, find_all_eyetrackers
+from helpers import save_eye_images_as_png, write_file
 
+# %%
 def subscribe():
     def gaze_data_callback(gaze_data):
         """ Function that will be 'passed on' to the eytracker to tell it what to do at each sample (currently just adds all data to the list)"""
@@ -42,17 +44,12 @@ unsubscribe()
 
 # %%
 """ Save eye images and gaze data to json files. """
-
+write_file(all_gaze_data, 'datafiles/gaze_data.json')
+write_file(all_eye_images, 'datafiles/eye_images.pkl')
 
 # %%
-import json
-for image_data in all_eye_images:
-    timestamp, byte_string = image_data['device_time_stamp'], image_data['image_data']
-    with open(f"images/{timestamp}.png", "wb") as image_file:
-        image_file.write(byte_string)
 
-with open('data.json', 'w') as json_file:
-    json.dump(data, json_file)
+
 
 
 
