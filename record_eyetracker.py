@@ -2,12 +2,8 @@
 
 # %%
 # 'Import' code (pull in code that tobii etc. have written so we can use it)
-import json
 import time
-import numpy as np
-import tobii_research as tr
-from tobiiresearch.implementation.EyeTracker import EyeTracker, find_all_eyetrackers
-from helpers import save_eye_images_as_png, write_file, EyetrackerHandler
+from helpers import EyetrackerHandler
 
 # Fill out manually - all subscriptions listed in subscriptions_list.txt
 subscriptions_list = ['eyetracker_gaze_data', 'eyetracker_eye_images']
