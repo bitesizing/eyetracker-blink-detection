@@ -7,11 +7,12 @@ from helpers import EyetrackerHandler
 subscriptions_list = [
     'eyetracker_gaze_data',
     ]
+recording_time = 10  # time to record in seconds
 
-# Toy code to set up the eyetracker, record for 2s, then sleep
+# Toy code to set up the eyetracker, record for desired number of seconds, then sleep
 eyetracker = EyetrackerHandler(subscriptions_list)  # set up the eytracker as an 'object' with the given subscriptions
 eyetracker.subscribe()  # start recording
-time.sleep(10)  # wait 10s
+time.sleep(recording_time)  # wait 10s
 eyetracker.unsubscribe()  # stop recording
 
 """ Save eye images and gaze data to json files. """
