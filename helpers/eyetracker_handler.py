@@ -30,6 +30,7 @@ class EyetrackerHandler():
             EyeTracker: The found eyetracker.
         """
         all_trackers = find_all_eyetrackers()
+        if len(all_trackers) == 0: raise ValueError('No eyetrackers found!')
         return(all_trackers[0])
 
     def subscribe(self) -> None:
